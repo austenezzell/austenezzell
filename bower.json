@@ -1,0 +1,52 @@
+{
+  "name": "uno",
+  "version": "0.0.0",
+  "homepage": "https://github.com/CincoDesign/uno",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "enquire": "~2.1.2",
+    "fastclick": "~1.0.6",
+    "gsap": "~1.17.0",
+    "jquery": "~2.1.3",
+    "modernizr": "~2.8.3",
+    "scrollmagic": "~2.0.5",
+    "smoothstate": "~0.7.2",
+    "velocity": "~1.2.1",
+    "waypoints": "~4.0.0",
+    "adaptive.background": "~1.0.3"
+  },
+  "overrides": {
+    "adaptive.background": {
+      "main": [
+        "src/jquery.adaptive-backgrounds.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css",
+        "dist/js/bootstrap.min.js"
+      ]
+    },
+    "scrollmagic": {
+      "main": [
+        "scrollmagic/minified/ScrollMagic.min.js",
+        "scrollmagic/minified/plugins/animation.gsap.min.js"
+      ]
+    },
+    "waypoints": {
+      "main": [
+        "lib/jquery.waypoints.js",
+        "lib/shortcuts/inview.min.js",
+        "lib/shortcuts/sticky.min.js"
+      ]
+    }
+  }
+}

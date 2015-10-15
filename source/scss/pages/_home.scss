@@ -1,0 +1,166 @@
+/* ====================================
+ * Homepage
+ * ==================================== */
+
+.home-page {
+  .featured-work {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .home-feature {
+    background: $color-gray;
+    span {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+  .home-feature-1 {
+    background-size: cover;
+    right: 50%;
+    margin-right: 15px;
+    position: absolute;
+    height: 35%;
+    width: 50%;
+    top: 25%;
+    @include breakpoint(xs) {
+      right: 0;
+      width: 100%;
+      top: 25%;
+      height:50%;
+    }
+    @include breakpoint(sm) {
+      right: 0;
+      width: 100%;
+      top: 20%;
+      height:60%;
+    }
+  }
+  .home-feature-2 {
+    display: none;
+    background-size: cover;
+    right: 50%;
+    margin-right: 15px;
+    margin-top: 15px;
+    position: absolute;
+    height: 20%;
+    width: 30%;
+    top: 60%;
+    @include breakpoint(md) {
+      display: block;
+    }
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+  .home-feature-3 {
+    display: none;
+    background-size: cover;
+    left: 50%;
+    position: absolute;
+    height: 60%;
+    width: 50%;
+    top: 15%;
+    @include breakpoint(md) {
+      display: block;
+    }
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+  .featured-work-container .details {
+    bottom: 21%;
+    @include breakpoint(sm) {
+      bottom: 17%;
+    }
+  }
+}
+
+.page-description {
+  display: none;
+  opacity: 0;
+}
+
+.featured-work-container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  right: 0;
+  margin: 0 0 0 -33.32%;
+  width: 66.64%;
+  @include breakpoint(lg) {
+    width: 50%;
+    margin: 0 0 0 -25%;
+  }
+  .featured-work {
+    display: block;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    // height: 100%;
+    // width: 100%;
+  }
+  .archive-feature {
+    // background: url('/img/placeholder.png');
+    span {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      // opacity: 0;
+    }
+  }
+  .details {
+    position: absolute;
+    bottom: -30px;
+    left: 61%;
+    width: 200px;
+    height: 17px;
+    color: $color-black;
+    @include breakpoint(xs) {
+      left: 0%;
+    }
+    p {
+      margin: 0;
+      @extend %xs-font;
+    }
+  }
+}
+
+.cinco {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: -1;
+  .module {
+    width: 40%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+    left: 50%;
+    margin-left: -20%;
+    svg {
+      width: 100%;
+    }
+  }
+
+
+}

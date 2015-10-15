@@ -1,0 +1,87 @@
+/* ====================================
+ * About Page
+ * ==================================== */
+
+ .about-page {
+   .about-container {
+     h2 {
+       a {
+         position: relative;
+         z-index: 1;
+         transition: all 200ms linear;
+         &:hover {
+           color: black;
+           &:after {
+             height: 1px;
+             background: rgba($color-red,1);
+             bottom: 8px;
+           }
+         }
+         &:after {
+           content: '';
+           position: absolute;
+           width: 100%;
+           height: 10px;
+           background: rgba($color-red,.3);
+           left: 0;
+           bottom: 8px;
+           z-index: -1;
+           transition: all 200ms linear;
+         }
+       }
+     }
+     p {
+       a {
+         position: relative;
+         z-index: 1;
+         transition: all 200ms linear;
+         &:hover {
+           color: black;
+           &:after {
+             height: 1px;
+             background: rgba($color-red,1);
+             bottom: 1px;
+           }
+         }
+         &:after {
+           content: '';
+           position: absolute;
+           width: 100%;
+           height: 10px;
+           background: rgba($color-red,.3);
+           left: 0;
+           bottom: -2px;
+           z-index: -1;
+           transition: all 200ms linear;
+         }
+       }
+     }
+    //  position: relative;
+    //  z-index: 1;
+    //  top: 0;
+    //  padding-bottom: $base-spacing * 4;
+    //  @include breakpoint(md) {
+    //   top: -70px;
+    //  }
+    //  @include breakpoint(lg) {
+    //   top: -70px;
+    //  }
+    //  @include breakpoint(xl) {
+    //   top: -70px;
+    //  }
+      // .about-content {
+      //   margin-top: $base-spacing * 4;
+      //   @include breakpoint(md) {
+      //     margin-top: 22px;
+      //     padding-bottom: $base-spacing * 5;
+      //
+      //   }
+      //   @include breakpoint(lg) {
+      //     margin-top: 22px;
+      //     padding-bottom: $base-spacing * 5;
+      //   }
+      // }
+   }
+
+
+ }

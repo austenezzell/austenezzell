@@ -1,0 +1,28 @@
+/* ====================================
+ * Header
+ * ==================================== */
+
+.site-title {
+  z-index: 999;
+  position: fixed;
+  margin-top: $base-spacing * 1;
+  width: 50%;
+}
+.black-bg {
+  .site-title h2 a {
+    color: white;
+    &:hover {
+      color: $color-red;
+    }
+  }
+}
+.tag {
+  z-index: 2;
+  position: absolute;
+  top: $base-spacing * 5;
+  width: 100%;
+  pointer-events: none;
+  h2 {
+    margin-top: 0;
+  }
+}

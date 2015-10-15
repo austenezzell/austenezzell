@@ -1,0 +1,78 @@
+/* ====================================
+ * Site typography
+ * ==================================== */
+
+/* Headings
+ * ==================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  //@include bold-font();
+  margin-top: $font-margin-top;
+  margin-bottom: $font-margin-bottom;
+}
+
+h1, .h1 {
+  @extend %xxl-font;
+  color: $color-black;
+}
+
+h2, .h2 {
+  @extend %xl-font;
+  color: $color-black;
+}
+
+h3, .h3 {
+  @extend %large-font;
+  color: $color-black;
+}
+
+h4, .h4 {
+  @extend %medium-font;
+  color: $color-black;
+}
+
+h5, .h5 {
+  @extend %small-font;
+  color: $color-black;
+}
+
+h6, .h6 {
+  @extend %small-font;
+  color: $color-black;
+}
+
+/* Paragraphs, links and combined
+ * ==================================== */
+
+p, ul, ol, pre, table, blockquote {
+  @extend %small-font;
+  margin-top: $font-margin-top;
+  margin-bottom: $font-margin-bottom;
+  color: $color-black;
+}
+
+p {}
+
+a {
+  color: $color-black;
+  text-decoration: none;
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+    color: $color-red;
+  }
+}
+
+p a {}
+
+/* Separate elements
+ * ==================================== */
+
+em {}
+
+strong, b {}
+
+i {}
+
+time {}
+
+hr {}

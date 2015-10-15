@@ -1,0 +1,48 @@
+/* ====================================
+ * Blog
+ * ==================================== */
+
+.blog-page {
+
+  .module {
+    padding: 15px;
+    position: relative;
+    height: 100%;
+  }
+  .padding {
+    .image {
+      height: 80%;
+      width: 100%;
+      right: 0;
+      position: absolute;
+      top: 10%;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .padding-double {
+    .image {
+      height: 60%;
+      width: 100%;
+      right: 0;
+      position: absolute;
+      top: 20%;
+      background-size: cover;
+      background-position: center;
+    }
+
+  }
+
+  .one-up-portrait-full {
+    .image {
+      background: red;
+      height: 100%;
+      width: 100%;
+      right: 0;
+      position: absolute;
+      top: 0%;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}

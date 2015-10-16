@@ -4,6 +4,16 @@
 
 .blog-page {
 
+
+  .image-2, .image-3 {
+    display:block;
+    @include breakpoint(xs) {
+      display:none;
+    }
+    @include breakpoint(sm) {
+      display:none;
+    }
+  }
   .module {
     padding: 15px;
     position: relative;
@@ -30,19 +40,32 @@
       background-size: cover;
       background-position: center;
     }
-
   }
 
-  .one-up-portrait-full {
+  .cover {
+    margin-left:-15px;
+    margin-right:-15px;
     .image {
-      background: red;
       height: 100%;
       width: 100%;
       right: 0;
       position: absolute;
-      top: 0%;
+      top: 0;
       background-size: cover;
       background-position: center;
     }
   }
+
+  // .one-up-portrait-full {
+  //   .image {
+  //     background: red;
+  //     height: 100%;
+  //     width: 100%;
+  //     right: 0;
+  //     position: absolute;
+  //     top: 0%;
+  //     background-size: cover;
+  //     background-position: center;
+  //   }
+  // }
 }

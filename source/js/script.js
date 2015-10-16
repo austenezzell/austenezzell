@@ -45,8 +45,7 @@ var aeApp = aeApp || {};
          opacity: 1
        }, {
          duration: 400,
-         delay: order,
-         display: 'block'
+         delay: order
        });
      }
 
@@ -70,8 +69,8 @@ var aeApp = aeApp || {};
         element.velocity({
           opacity: 1
         }, {
-          duration: 800,
-          delay: 600,
+          duration: 400,
+          delay: order,
           complete: function(){
             element.find('span').velocity({
               opacity: 1

@@ -25,7 +25,6 @@ var aeApp = aeApp || {};
   var numberOfImages;
 
   aeApp.intro = function() {
-
    $('.footer-content').velocity({
      opacity: 1
    }, {
@@ -40,188 +39,67 @@ var aeApp = aeApp || {};
      var $blogContainer = $('.blog-container');
      var nextPage = $blogContainer.data('next-page');
      var previousPage = $blogContainer.data('previous-page');
+     var fadeIn = function(e, order){
+       order *= 400;
+       e.velocity({
+         opacity: 1
+       }, {
+         duration: 400,
+         delay: order,
+         display: 'block'
+       });
+     }
 
-
-     $('.image-1').velocity({
-       opacity: 1
-     }, {
-       duration: 400,
-       delay: 400,
-       display: 'block',
-     });
-
-     var next = function(){
-       if(numberOfClicks == 2){
-         window.location = nextPage;
-         numberOfClicks = 0;
-         console.log(numberOfClicks);
-       } else if(numberOfClicks == 1){
-         if(numberOfImages == 2) {
-           window.location = nextPage;
-           numberOfClicks = 0;
-           console.log(numberOfClicks);
-         } else if(numberOfImages == 3){
-           $('.image-3').velocity({
-             opacity: 1
-           }, {
-             duration: 400,
-             delay: 400,
-             display: 'block',
-           });
-         }
-         numberOfClicks = 2;
-         console.log(numberOfClicks);
-       } else if(numberOfClicks == 0){
-         if(numberOfImages == 1){
-           window.location = nextPage;
-           numberOfClicks = 0;
-           console.log(numberOfClicks);
-         } else if(numberOfImages == 2 || numberOfImages == 3){
-           $('.image-2').velocity({
-             opacity: 1
-           }, {
-             duration: 400,
-             delay: 400,
-             display: 'block',
-           });
-         }
-         numberOfClicks = 1;
-         console.log(numberOfClicks);
-       }
-     };
-
-     var previous = function(){
-       if(numberOfClicks == 0){
-         window.location = previousPage;
-
-       } else if (numberOfClicks == 1){
-         if(numberOfImages == 2){
-           $('.image-2').velocity({
-             opacity: 0
-           }, {
-             duration: 400,
-             delay: 400,
-             display: 'block',
-           });
-         }
-         numberOfClicks == 0;
-         console.log(numberOfClicks);
-       } else if(numberOfClicks == 1){
-         if(numberOfImages == 2) {
-           $('.image-2').velocity({
-             opacity: 0
-           }, {
-             duration: 400,
-             delay: 400,
-             display: 'block',
-           });
-           numberOfClicks = 0;
-
-         }
-       } else if(numberOfClicks == 2){
-         if(numberOfImages == 3){
-           $('.image-3').velocity({
-             opacity: 0
-           }, {
-             duration: 400,
-             delay: 400,
-             display: 'block',
-           });
-         }
-        numberOfClicks == 1;
-        console.log(numberOfClicks);
-       }
-     };
-
-     $(document).keydown(function(e){
-         if (e.keyCode == 39) {
-          next();
-        } else if(e.keyCode == 37){
-          previous();
-        }
-     });
-
-     $blogContainer.click(function(){
-       next();
-     });
-
+     fadeIn($('.image-1'), 1);
+     if(numberOfImages == 2) {
+       fadeIn($('.image-2'), 2);
+     }
+     if(numberOfImages == 3){
+       fadeIn($('.image-3'), 3);
+     }
    }
 
    if($('body').hasClass('home-page')){
     var numberOfFeatures = $('.feature-container').length;
     var randomFeature = Math.floor(Math.random() * numberOfFeatures) + 1;
 
-    $('.feature-container-' + randomFeature).velocity({
-      opacity: 1
-    },{
-      display: 'block'
-    });
+    var animateIn = function(element, order){
+      order *= 400;
 
-
-    $('.page-description').velocity({
-      opacity: 1
-    }, {
-      duration: 400,
-      delay: 800,
-      display: 'block',
-    });
-
-    $('.home-feature-1').velocity({
-      opacity: 1
-    }, {
-      duration: 400,
-      delay: 2000,
-      complete: function(){
-        $('.home-feature-1 span').velocity({
+      if(element.hasClass('home-feature')){
+        element.velocity({
           opacity: 1
         }, {
-          duration: 1800,
-          delay: 400,
-          display: 'block'
-        })
-      }
-    });
-
-    $('.home-feature-2').velocity({
-      opacity: 1
-    }, {
-      duration: 400,
-      delay: 2200,
-      complete: function(){
-        $('.home-feature-2 span').velocity({
-          opacity: 1
-        }, {
-          duration: 1800,
-          delay: 400,
-          display: 'block'
-        })
-      }
-    });
-
-    $('.home-feature-3').velocity({
-      opacity: 1
-    }, {
-      duration: 400,
-      delay: 2600,
-      complete: function(){
-        $('.home-feature-3 span').velocity({
-          opacity: 1
-        }, {
-          duration: 2000,
-          delay: 400,
-          display: 'block'
-        })
-      }
-    });
-
-    $('.details').velocity({
-      opacity: 1
-    }, {
-      duration: 400,
-      delay: 2400,
-    });
+          duration: 800,
+          delay: 600,
+          complete: function(){
+            element.find('span').velocity({
+              opacity: 1
+            }, {
+              duration: 1800,
+              delay: 400,
+              display: 'block'
+            })
+            }
+          });
+        } else {
+          element.velocity({
+            opacity: 1
+          }, {
+            duration: order,
+            display: 'block',
+            delay: 400
+          });
+        }
+    }
+    animateIn($('.feature-container-' + randomFeature), 0);
+    animateIn($('.page-description'), 1);
+    animateIn($('.home-feature-1'),2);
+    animateIn($('.home-feature-2'),3);
+    animateIn($('.home-feature-3'),4);
+    animateIn($('.details'),5);
   }
- }
+}
 
 aeApp.bodyClass = function() {
   var pageClassElement = $('.page');
@@ -364,7 +242,6 @@ aeApp.recentWorkAnimations = function() {
 
   $feature.hover(function(){
     projectColor = $('span', this).attr("data-background").toString();
-    //projectColorHex = rgb2hex(projectColor);
     $('.scene_element').velocity('stop').velocity({
         backgroundColor: projectColor
       }, {
@@ -455,7 +332,7 @@ aeApp.smoothState = function() {
               duration: 400,
               delay: 0
           });
-        } else if ($(targetElement).hasClass('next') || $(targetElement).hasClass('featured-case-study')) {
+        } else if ($(targetElement).hasClass('next') || $(targetElement).hasClass('featured-case-study') || $(targetElement).hasClass('blog-container')) {
           var projectColor = $(targetElement).attr("data-background");
 
           $('body').velocity({
@@ -478,30 +355,20 @@ aeApp.smoothState = function() {
         duration: 400, // Duration of our animation
         render: function($container) {
           // Add your CSS animation reversing class
-
           $container.addClass('is-exiting');
-          // $('body').attr('style', '');
-
-
           // Restart your animation
           smoothState.restartCSSAnimations();
           aeApp.onload();
-
         }
       },
       onReady: {
         duration: 0,
         render: function($container, $newContent) {
-
           // Remove your CSS animation reversing class
           $container.removeClass('is-exiting');
           // Inject the new content
-
           $container.html($newContent);
           aeApp.onload();
-
-          //$('body').attr('style', '');
-
         }
       }
     },
@@ -511,7 +378,6 @@ aeApp.smoothState = function() {
 $( window ).resize(function() {
   aeApp.resize();
 });
-
 
 // Define load object
 aeApp.onload = function() {
@@ -526,12 +392,8 @@ aeApp.onload = function() {
   aeApp.hoverMovement();
 };
 
-
-
 (function($, window, document) {
 
   aeApp.onload();
-
-
 
 }(window.jQuery, window, document));

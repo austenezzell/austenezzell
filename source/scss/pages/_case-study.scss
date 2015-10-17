@@ -82,6 +82,8 @@ a.next {
   display: inline-block;
   margin: $base-spacing * 8 0;
   @extend %huge-font;
+  position: relative;
+  left: -6px;
   span {
     transition: all 800ms linear;
     opacity: 0;

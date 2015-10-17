@@ -22,6 +22,9 @@
   top: $base-spacing * 5;
   width: 100%;
   pointer-events: none;
+  @include breakpoint(xs) {
+    top: $base-spacing * 4;
+  }
   h2 {
     margin-top: 0;
   }

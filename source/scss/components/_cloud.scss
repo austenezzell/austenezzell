@@ -1,0 +1,166 @@
+/* ====================================
+ * Cloud
+ * ==================================== */
+
+ .cloud-container {
+   overflow-x: hidden;
+   width: 100%;
+   position: relative;
+   z-index: 5;
+   top:0;
+   right:0;
+   bottom:0;
+   left:0;
+   height: 900px;
+   @include breakpoint(xs) {
+     height: 700px;
+   }
+   @include breakpoint(sm) {
+     height: 750px;
+   }
+   @include breakpoint(md) {
+     height: 850px;
+   }
+   @include breakpoint(lg) {
+     height: 1100px;
+   }
+ }
+ .ie-cloud {
+   position: absolute;
+   z-index: 0;
+   background: url('/img/nextbit/cloud4.png');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   top: 200px;
+   left: 0%;
+   margin-left: 0px;
+   width: 100%;
+   height: 320px;
+   @include breakpoint(sm) {
+     width: 100%;
+     margin-left: 0;
+     left: 0%;
+     height: 500px;
+     top: 200px;
+   }
+   @include breakpoint(md) {
+     width: 100%;
+     margin-left: 0%;
+     left: 0%;
+     height: 600px;
+     top: 120px;
+   }
+   @include breakpoint(lg) {
+     width: 100%;
+     margin-left: 0%;
+     left: 0%;
+     height: 660px;
+     top: 160px;
+   }
+ }
+ .cloud {
+   position: absolute;
+   z-index: 0;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   top: 200px;
+   left: 0%;
+   margin-left: 0px;
+   width: 100%;
+   height: 350px;
+   @include breakpoint(sm) {
+     width: 100%;
+     margin-left: 0;
+     left: 0%;
+     height: 500px;
+     top: 180px;
+   }
+   @include breakpoint(md) {
+     width: 100%;
+     margin-left: 0%;
+     left: 0%;
+     height: 600px;
+     top: 180px;
+   }
+   @include breakpoint(lg) {
+     width: 100%;
+     margin-left: 0%;
+     left: 0%;
+     height: 660px;
+     top: 180px;
+   }
+
+ }
+
+ #viewport {
+ 	-webkit-perspective: 1000;
+ 	-moz-perspective: 1000;
+ 	-o-perspective: 1000;
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+
+ }
+
+ #world {
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	margin-left: -256px;
+ 	margin-top: -256px;
+ 	height: 512px;
+ 	width: 512px;
+ 	-webkit-transform-style: preserve-3d;
+ 	-moz-transform-style: preserve-3d;
+ 	-o-transform-style: preserve-3d;
+  -moz-perspective: 390px;
+
+ }
+
+ #world div {
+ 	transform-style: preserve-3d;
+ }
+
+ .cloudBase {
+ 	position: absolute;
+ 	left: 256px;
+ 	top: 256px;
+ 	width: 20px;
+ 	height: 20px;
+ 	margin-left: -10px;
+ 	margin-top: -10px;
+  transform-style: preserve-3d;
+  transform:translateX(0) translateY(0) translateZ(100px) scale(.8);
+
+  @include breakpoint(xs) {
+    transform:translateX(0) translateY(0) translateZ(100px) scale(.5);
+  }
+  @include breakpoint(sm) {
+    transform:translateX(0) translateY(0) translateZ(100px) scale(.5);
+  }
+  @include breakpoint(md) {
+    transform:translateX(0) translateY(0) translateZ(100px) scale(.6);
+  }
+  @include breakpoint(lg) {
+    transform:translateX(0) translateY(0) translateZ(100px) scale(.7);
+  }
+ }
+
+ .cloudLayer {
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 256px;
+ 	height: 256px;
+ 	margin-left: -128px;
+ 	margin-top: -128px;
+ 	-webkit-transition: opacity 2.5s ease-out;
+ 	-moz-transition: opacity 2.5s ease-out;
+ 	-o-transition: opacity 2.5s ease-out;
+ 	background-image: url('/img/nextbit/dark-cloud.png');
+  background-size: cover;
+ }

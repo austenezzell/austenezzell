@@ -76,8 +76,12 @@
   }
   .featured-work-container .details {
     bottom: 21%;
+    @include breakpoint(xs) {
+      left: 0;
+    }
     @include breakpoint(sm) {
       bottom: 17%;
+      left: 0;
     }
   }
 }
@@ -133,7 +137,7 @@
     height: 17px;
     color: $color-black;
     @include breakpoint(xs) {
-      left: 0%;
+      left: $base-spacing *1;
     }
     p {
       margin: 0;

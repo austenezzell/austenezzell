@@ -50,6 +50,15 @@ $header-line-height: 1.1;
   line-height: $body-line-height;
   font-family: "brandon-grotesque",sans-serif;
   font-weight: 400;
+  @include breakpoint(xs) {
+    @include font-size(18);
+  }
+  @include breakpoint(sm) {
+    @include font-size(18);
+  }
+  @include breakpoint(md) {
+    @include font-size(18);
+  }
 }
 
 %large-font {
@@ -57,6 +66,15 @@ $header-line-height: 1.1;
   line-height: $header-line-height;
   font-family: "brandon-grotesque",sans-serif;
   font-weight: 400;
+  @include breakpoint(xs) {
+    @include font-size(22);
+  }
+  @include breakpoint(sm) {
+    @include font-size(27);
+  }
+  @include breakpoint(md) {
+    @include font-size(27);
+  }
 }
 
 %xl-font {
@@ -64,14 +82,15 @@ $header-line-height: 1.1;
   line-height: $header-line-height;
   font-family: "brandon-grotesque",sans-serif;
   font-weight: 400;
+
   @include breakpoint(xs) {
-    @include font-size(23);
+    @include font-size(32);
   }
   @include breakpoint(sm) {
-    @include font-size(33);
+    @include font-size(41);
   }
   @include breakpoint(md) {
-    @include font-size(43);
+    @include font-size(41);
   }
 }
 
@@ -80,6 +99,15 @@ $header-line-height: 1.1;
   line-height: $header-line-height;
   font-family: "brandon-grotesque",sans-serif;
   font-weight: 400;
+  @include breakpoint(xs) {
+    @include font-size(50);
+  }
+  @include breakpoint(sm) {
+    @include font-size(60);
+  }
+  @include breakpoint(md) {
+    @include font-size(60);
+  }
 }
 
 %huge-font {
@@ -87,4 +115,13 @@ $header-line-height: 1.1;
   line-height: $header-line-height;
   font-family: "brandon-grotesque",sans-serif;
   font-weight: 400;
+  @include breakpoint(xs) {
+    @include font-size(60);
+  }
+  @include breakpoint(sm) {
+    @include font-size(70);
+  }
+  @include breakpoint(md) {
+    @include font-size(70);
+  }
 }

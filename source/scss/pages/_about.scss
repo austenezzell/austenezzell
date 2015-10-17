@@ -14,7 +14,10 @@
            &:after {
              height: 1px;
              background: rgba($color-red,1);
-             bottom: 8px;
+             bottom: 3px;
+             @include breakpoint(xs) {
+              bottom:2px;
+             }
            }
          }
          &:after {
@@ -27,6 +30,9 @@
            bottom: 8px;
            z-index: -1;
            transition: all 200ms linear;
+           @include breakpoint(xs) {
+            bottom:2px;
+           }           
          }
        }
      }

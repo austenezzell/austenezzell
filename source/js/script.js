@@ -19,6 +19,28 @@ var aeApp = aeApp || {};
         $('body').css('background', '');
       }
     }
+    $('.nextBlogEntry').hover(function(){
+      $('#follow').velocity({
+        opacity: 1
+      },{
+        duration: 400,
+        display: 'block',
+      });
+      $('.nextBlogEntry').on('mousemove', function(e){
+        $('#follow').css({
+           left:  e.pageX,
+           top:   e.pageY
+        });
+      });
+    }, function(){
+      $('#follow').velocity({
+        opacity: 0
+      },{
+        duration: 400,
+        display: 'none',
+      });
+    });
+
   };
 
   var numberOfClicks = 0;
@@ -30,7 +52,7 @@ var aeApp = aeApp || {};
    }, {
      duration: 400,
      delay: 800,
-     display: 'block',
+     display: 'block'
    });
 
    if($('body').hasClass('blog-page')){

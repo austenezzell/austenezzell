@@ -67,16 +67,18 @@
     }
   }
 
-  // .one-up-portrait-full {
-  //   .image {
-  //     background: red;
-  //     height: 100%;
-  //     width: 100%;
-  //     right: 0;
-  //     position: absolute;
-  //     top: 0%;
-  //     background-size: cover;
-  //     background-position: center;
-  //   }
-  // }
+  #follow {
+    pointer-events: none;
+    position: fixed;
+    top:50%;
+    left: $base-spacing;
+    height: 50px;
+    width: 80px;
+    opacity: 0;
+    display: none;
+    h2 {
+      color: white;
+      margin: 0;
+    }
+  }
 }

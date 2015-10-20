@@ -100,7 +100,7 @@
   left: 50%;
   bottom: 0;
   right: 0;
-  margin: 0 0 0 -33.32%;
+  margin: 0 0 90px -33.32%;
   width: 66.64%;
   @include breakpoint(lg) {
     width: 50%;
@@ -129,15 +129,33 @@
       // opacity: 0;
     }
   }
-  .details {
+  .home-details {
     position: absolute;
-    bottom: -30px;
+    bottom: 21%;
+    left: 61%;
+    width: 200px;
+    height: 17px;
+    color: $color-black;
+    @include breakpoint(sm) {
+      bottom: 16%;
+    }
+    @include breakpoint(xs) {
+      left: -15px;
+    }
+    p {
+      margin: 0;
+      @extend %xs-font;
+    }
+  }
+  .details {
+    position: relative;
+    bottom: -15px;
     left: 61%;
     width: 200px;
     height: 17px;
     color: $color-black;
     @include breakpoint(xs) {
-      left: $base-spacing *1;
+      left: 0;
     }
     p {
       margin: 0;

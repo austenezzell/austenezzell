@@ -2,31 +2,37 @@
  * Navigation
  * ==================================== */
 
-.about-page {
-   .nav-bg {
-      background: linear-gradient(rgba(white,.0), rgba(white,.05), rgba(white,.15), rgba(white,.35), rgba(white,.55), rgba(white,.75), rgba(white,.85), rgba(white,.95), rgba(white,.95) );
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 2;
-      width: 100%;
-      height: $base-spacing * 6;
-      transition: all 500ms linear;
-      &.slide-down {
-        bottom: -$base-spacing * 4;
-      }
-    }
- }
-.nav-container {}
- nav {
-  width: 100px;
+
+nav {
+  width: 50px;
   position: fixed;
-  bottom: 0;
   right: 0;
   z-index: 9999;
-  height: 100%;
+  height: 380px;
+  bottom: 50%;
+  margin-bottom: -190px;
+  //transform: translateY(-50%);
   text-align: center;
-
+  transition: all 400ms;
+  // @media (max-height: 400px){
+  //   height:360px;
+  //   top:0;
+  // }
+  // @include breakpoint(sm) {
+  //   height:360px;
+  //   top: 50%;
+  //   margin-top: -180px;
+  // }
+  // @include breakpoint(md) {
+  //   height:360px;
+  //   top: 50%;
+  //   margin-top: -180px;
+  // }
+  // @include breakpoint(lg) {
+  //   height:360px;
+  //   top: 50%;
+  //   margin-top: -180px;
+  // }
    ul {
      margin: 0;
      padding: 0;

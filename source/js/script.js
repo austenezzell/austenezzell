@@ -115,7 +115,7 @@ var aeApp = aeApp || {};
     animateIn($('.home-feature-1'),2);
     animateIn($('.home-feature-2'),3);
     animateIn($('.home-feature-3'),4);
-    animateIn($('.details'),5);
+    animateIn($('.home-details'),5);
   }
 };
 
@@ -131,28 +131,67 @@ aeApp.resize = function() {
   var $fullHeight = $('.full-height');
   var $centerMargin =  $('.center-margin');
   var featuredHeight = $centerMargin.height();
-  var centeredMarginTop = (windowHeight - featuredHeight) / 2;
+  var centeredMarginTop = (windowHeight - featuredHeight - 90) / 2;
+  var centeredMarginTopFirst = (windowHeight - featuredHeight) / 2;
 
   $fullHeight.velocity('stop').velocity({
     height: windowHeight
   });
 
   $centerMargin.css('margin-top', centeredMarginTop);
+  $('.center-margin-first').css('margin-top', centeredMarginTopFirst);
 
-  $('.peak').velocity('stop').velocity({
-      marginTop: centeredMarginTop
-    }, {
-      duration: 0,
-      delay: 0,
-      complete: function(){
-        $(this).velocity({
-          marginTop: centeredMarginTop - 24
-        }, {
-          duration: 400,
-          delay: 800
-        });
-      }
+  var centerNav = function(){
+    var windowHeight = $( window ).outerHeight();
+    var $mainNav = $('.main-navigation');
+    var mainNavTop = (windowHeight / 2) - ($mainNav.height() / 2);
+    console.log(mainNavTop);
+    $mainNav.css('top',mainNavTop);
+  }
+
+  // centerNav();
+
+  var peak = function(){
+    $('.peak').velocity('stop').velocity({
+        marginTop: centeredMarginTop
+      }, {
+        duration: 0,
+        delay: 0,
+        complete: function(){
+          $(this).velocity({
+            marginTop: centeredMarginTop - 24
+          }, {
+            duration: 400,
+            delay: 800
+          });
+        }
+    });
+  }
+
+  // Anything Desktop
+  enquire.register("(min-width: 768px)", {
+    match: function() {
+      console.log('match desktop');
+      peak();
+    },
+    unmatch: function() {
+      console.log('un-match');
+
+    }
   });
+
+  // Anything mobile
+  enquire.register("(max-width: 768px)", {
+    match: function() {
+      console.log('match');
+    },
+    unmatch: function() {
+      console.log('un-match');
+    }
+  });
+
+
+
 
   var lastScrollTop = 0;
 
@@ -492,8 +531,6 @@ aeApp.cloud = function() {
   update();
   }
 };
-
-
 
 
 

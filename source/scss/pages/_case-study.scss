@@ -98,6 +98,16 @@ a.next {
 .project-section {
   margin-top: $base-spacing * 6;
 }
+.mobile-project-section {
+  margin-top: 0;
+  @include breakpoint(xs) {
+    margin-top: $base-spacing * 6;
+  }
+  @include breakpoint(sm) {
+    margin-top: $base-spacing * 6;
+  }
+
+}
 // .nextbit {
 //   background: #7b80f6;
 // }

@@ -4,6 +4,50 @@
 
 var aeApp = aeApp || {};
 
+  aeApp.mobile = function() {
+
+    var $video = $('video');
+
+
+
+    var mobileVideo = function(){
+      if($(this).attr('data-mobile-image')){
+        var image = $(this).data('mobile-image');
+        //console.log($(this));
+        $(this).hide();
+        $(this).after('<img class="mobile-video-replacement" src="' + image + '">');
+      } else {
+        $(this).parent().hide();
+      }
+    }
+
+
+
+    // Anything mobile
+    enquire.register("(max-width: 992px)", {
+      match: function() {
+        $video.each(mobileVideo);
+      },
+      unmatch: function() {
+        $video.show();
+        $video.parent().show();
+        $('.mobile-video-replacement').hide();
+      }
+    });
+
+    // Anything desktop
+    enquire.register("(min-width: 992px)", {
+      match: function() {
+        $('video').show();
+        $('.mobile-video-replacement').hide();
+      },
+      unmatch: function() {
+        $video.each(mobileVideo);
+      }
+    });
+
+  }
+
   aeApp.bgColor = function() {
       $.adaptiveBackground.run();
   };
@@ -141,54 +185,45 @@ aeApp.resize = function() {
   $centerMargin.css('margin-top', centeredMarginTop);
   $('.center-margin-first').css('margin-top', centeredMarginTopFirst);
 
-  var centerNav = function(){
-    var windowHeight = $( window ).outerHeight();
-    var $mainNav = $('.main-navigation');
-    var mainNavTop = (windowHeight / 2) - ($mainNav.height() / 2);
-    console.log(mainNavTop);
-    $mainNav.css('top',mainNavTop);
-  }
+  // var centerNav = function(){
+  //   var windowHeight = $( window ).outerHeight();
+  //   var $mainNav = $('.main-navigation');
+  //   var mainNavTop = (windowHeight / 2) - ($mainNav.height() / 2);
+  //   console.log(mainNavTop);
+  //   $mainNav.css('top',mainNavTop);
+  // }
 
   // centerNav();
 
-  var peak = function(){
-    $('.peak').velocity('stop').velocity({
-        marginTop: centeredMarginTop
-      }, {
-        duration: 0,
-        delay: 0,
-        complete: function(){
-          $(this).velocity({
-            marginTop: centeredMarginTop - 24
-          }, {
-            duration: 400,
-            delay: 800
-          });
-        }
-    });
-  }
+  // var peak = function(){
+  //   $('.peak').velocity('stop').velocity({
+  //       marginTop: centeredMarginTop
+  //     }, {
+  //       duration: 0,
+  //       delay: 0,
+  //       complete: function(){
+  //         $(this).velocity({
+  //           marginTop: centeredMarginTop - 24
+  //         }, {
+  //           duration: 400,
+  //           delay: 800
+  //         });
+  //       }
+  //   });
+  // }
 
   // Anything Desktop
-  enquire.register("(min-width: 768px)", {
-    match: function() {
-      console.log('match desktop');
-      peak();
-    },
-    unmatch: function() {
-      console.log('un-match');
+  // enquire.register("(min-width: 768px)", {
+  //   match: function() {
+  //     console.log('match desktop');
+  //     peak();
+  //   },
+  //   unmatch: function() {
+  //     console.log('un-match');
+  //
+  //   }
+  // });
 
-    }
-  });
-
-  // Anything mobile
-  enquire.register("(max-width: 768px)", {
-    match: function() {
-      console.log('match');
-    },
-    unmatch: function() {
-      console.log('un-match');
-    }
-  });
 
 
 
@@ -631,6 +666,7 @@ aeApp.onload = function() {
   aeApp.homepageHoverAnimations();
   aeApp.hoverMovement();
   aeApp.cloud();
+  aeApp.mobile();
 };
 
 (function($, window, document) {

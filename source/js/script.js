@@ -35,17 +35,6 @@ var aeApp = aeApp || {};
       }
     });
 
-    // Anything desktop
-    enquire.register("(min-width: 992px)", {
-      match: function() {
-        $('video').show();
-        $('.mobile-video-replacement').hide();
-      },
-      unmatch: function() {
-        $video.each(mobileVideo);
-      }
-    });
-
   }
 
   aeApp.bgColor = function() {

@@ -211,6 +211,33 @@ aeApp.bodyClass = function() {
   $('body').addClass(pageClass);
 };
 
+aeApp.recentWork = function(){
+  var windowHeight = $( window ).outerHeight();
+  var $fullHeight = $('.full-height');
+  var $centerMargin =  $('.center-margin');
+  var featuredHeight = $centerMargin.height();
+  var centeredMarginTop = (windowHeight - featuredHeight - 24) / 2;
+
+  var peak = function(){
+    console.log('here');
+    $('.peak').velocity('stop').velocity({
+        marginTop: centeredMarginTop
+      }, {
+        duration: 0,
+        delay: 0,
+        complete: function(){
+          $(this).velocity({
+            marginTop: centeredMarginTop - 36
+          }, {
+            duration: 400,
+            delay: 800
+          });
+        }
+    });
+  }
+  peak();
+}
+
 aeApp.resize = function() {
   var windowHeight = $( window ).outerHeight();
   var $fullHeight = $('.full-height');
@@ -222,7 +249,11 @@ aeApp.resize = function() {
   $fullHeight.velocity('stop').velocity({
     height: windowHeight
   });
-
+  if(centeredMarginTop < 90){
+    centeredMarginTop = 90;
+  } else {
+    centeredMarginTop = (windowHeight - featuredHeight - 24) / 2;
+  }
   $centerMargin.css('margin-top', centeredMarginTop);
   $('.center-margin-first').css('margin-top', centeredMarginTopFirst);
 
@@ -708,6 +739,7 @@ aeApp.onload = function() {
   aeApp.hoverMovement();
   aeApp.cloud();
   aeApp.mobile();
+  aeApp.recentWork();
 };
 
 (function($, window, document) {

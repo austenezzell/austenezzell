@@ -7,7 +7,7 @@ p.menu-toggle {
   right: 15px;
   top: 48px;
   @extend %xl-font;
-  color: lighten(black,60%);
+  color: black;
   z-index: 99;
   display: none;
   margin: 0;
@@ -82,7 +82,7 @@ nav {
    }
  }
  .black-bg {
-   nav ul li a {
+   nav ul li a, .menu-toggle {
      color: white;
      &:hover {
        color: $color-red;

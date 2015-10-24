@@ -14,7 +14,7 @@
   }
 }
 .black-bg {
-  .site-title h2 a {
+  .site-title h2 a, .menu-toggle {
     color: white;
     &:hover {
       color: $color-red;

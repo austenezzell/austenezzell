@@ -4,12 +4,66 @@
 
 var aeApp = aeApp || {};
 
+
+
   aeApp.mobile = function() {
 
+    var $menuToggle = $('.menu-toggle');
+    var $mainNav = $('.main-navigation');
+
+    $menuToggle.click(function(e){
+      e.preventDefault();
+
+      console.log($(this));
+
+      if ($('body').hasClass('menu-active')){
+        $(this).text('menu');
+        $('body').removeClass('menu-active');
+        hideOverlay($mainNav);
+      } else {
+        $(this).text('close');
+        $('body').addClass('menu-active');
+        showOverlay($mainNav);
+      }
+    });
+
+    var hideOverlay = function(e){
+      e.find($('a')).velocity({
+        opacity: 0,
+        top: 50
+      },{
+        duration: 200,
+        complete: function(){
+          e.velocity({
+            opacity: 0,
+          },{
+            duration:200,
+            display: 'none'
+          });
+          console.log('done');
+        }
+      });
+    }
+
+    var showOverlay = function(e){
+      e.velocity({
+        opacity: 1,
+      },{
+        duration: 200,
+        display: 'block',
+        complete: function(){
+          e.find($('a')).velocity({
+            opacity: 1,
+            top:0
+          },{
+            duration:200
+          });
+          console.log('done');
+        }
+      });
+    }
+
     var $video = $('video');
-
-
-
     var mobileVideo = function(){
       if($(this).attr('data-mobile-image')){
         var image = $(this).data('mobile-image');
@@ -20,8 +74,6 @@ var aeApp = aeApp || {};
         $(this).parent().hide();
       }
     }
-
-
 
     // Anything mobile
     enquire.register("(max-width: 992px)", {

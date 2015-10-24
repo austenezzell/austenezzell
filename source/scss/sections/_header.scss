@@ -8,6 +8,11 @@
   margin-top: $base-spacing * 1;
   width: 50%;
 }
+.menu-active {
+  .site-title h2 a {
+    color: black!important;
+  }
+}
 .black-bg {
   .site-title h2 a {
     color: white;

@@ -84,7 +84,7 @@ $header-line-height: 1.1;
   font-weight: 400;
 
   @include breakpoint(xs) {
-    @include font-size(32);
+    @include font-size(28);
   }
   @include breakpoint(sm) {
     @include font-size(41);

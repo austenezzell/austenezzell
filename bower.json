@@ -21,7 +21,8 @@
     "smoothstate": "~0.7.2",
     "velocity": "~1.2.1",
     "waypoints": "~4.0.0",
-    "adaptive.background": "~1.0.3"
+    "adaptive.background": "~1.0.3",
+    "js-cookie": "~2.0.4"
   },
   "overrides": {
     "adaptive.background": {

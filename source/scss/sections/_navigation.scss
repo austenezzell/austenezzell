@@ -4,8 +4,8 @@
 
 p.menu-toggle {
   position: fixed;
-  right: 15px;
-  top: 48px;
+  left: 75%;
+  top: 47px;
   @extend %xl-font;
   color: black;
   z-index: 99;
@@ -21,9 +21,9 @@ nav {
   position: fixed;
   right: 0;
   z-index: 9;
-  height: 380px;
+  height: 400px;
   bottom: 50%;
-  margin-bottom: -190px;
+  margin-bottom: -200px;
   text-align: center;
   transition: all 400ms;
   @include breakpoint(xs) {
@@ -39,9 +39,9 @@ nav {
      padding: 0;
      transform: rotate(-90deg);
      position: absolute;
-     width: 300px;
+     width: 400px;
      bottom: 50%;
-     right: -125px;
+     right: -175px;
      margin-top: -200px;
      @include breakpoint(xs) {
       transform: rotate(0);
@@ -72,7 +72,7 @@ nav {
           margin-left: 15px;
           padding-top: 15px;
           padding-bottom: 15px;
-          @include font-size(28);
+          @include font-size(24);
           color: $color-black!important;
           opacity: 0;
           top: 50px;
@@ -104,10 +104,10 @@ nav {
        &:after {
          content: '•';
          position: absolute;
-         left: 15px;
+         left: 5px;
          width: 6px;
          height: 6px;
-         bottom: 55px;
+         bottom: 50px;
          margin-bottom: -3px;
          margin-left: 0;
        }
@@ -130,10 +130,10 @@ nav {
        &:after {
          content: '•';
          position: absolute;
-         left: 15px;
+         left: 5px;
          width: 6px;
          height: 6px;
-         bottom: 55px;
+         bottom: 50px;
          margin-bottom: -3px;
          margin-left: 0;
        }
@@ -156,10 +156,10 @@ nav {
        &:after {
          content: '•';
          position: absolute;
-         left: 15px;
+         left: 5px;
          width: 6px;
          height: 6px;
-         bottom: 55px;
+         bottom: 50px;
          margin-bottom: -3px;
          margin-left: 0;
        }

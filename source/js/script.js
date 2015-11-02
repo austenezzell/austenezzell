@@ -89,6 +89,78 @@ var aeApp = aeApp || {};
   };
 
   aeApp.blog = function(){
+
+    var $moreInfo = $('.more-info');
+    var $infoButton = $('.info');
+    var $closeInfo = $('.close-info');
+    var $navHome = $('.site-title');
+    var $mainNav = $('.main-navigation');
+
+    $infoButton.click(function(e){
+      e.preventDefault();
+      hideNav();
+      showInfo();
+    });
+
+    $closeInfo.click(function(e){
+      e.preventDefault();
+      showNav();
+      hideInfo();
+    });
+
+    showInfo = function(){
+      $moreInfo.velocity({
+        top: '0',
+        opacity: 1,
+      },{
+        duration: 800,
+        delay: 0,
+        display: 'block'
+      });
+    }
+    hideInfo = function(){
+      $moreInfo.velocity({
+        top: 24,
+        opacity: 0,
+      },{
+        duration: 800,
+        delay: 0,
+        display: 'none'
+      });
+    }
+
+    showNav = function(){
+      $navHome.velocity({
+        top: 0,
+        opacity: 1,
+      },{
+        duration: 400,
+        delay: 0
+      });
+      $mainNav.velocity({
+        right: '0',
+        opacity: 1,
+      },{
+        duration: 400,
+        delay: 0
+      });
+    }
+
+    hideNav = function(){
+      $navHome.velocity({
+        top: -300,
+        opacity: 0,
+      },{
+        duration: 400
+      });
+      $mainNav.velocity({
+        right: '-200',
+        opacity: 0,
+      },{
+        duration: 400
+      });
+    }
+
     var bg = $('.scene_element').css('background-color');
     if($('body').hasClass('blog-page')){
       if(bg === 'rgba(0, 0, 0, 0)'){

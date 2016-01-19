@@ -39,10 +39,10 @@ nav {
      padding: 0;
      transform: rotate(-90deg);
      position: absolute;
-     width: 400px;
+     width: 430px;
      bottom: 50%;
-     right: -175px;
-     margin-top: -200px;
+     right: -180px;
+     margin-top: -300px;
      @include breakpoint(xs) {
       transform: rotate(0);
       width :100%;
@@ -51,6 +51,11 @@ nav {
       top: 0;
       right: 0;
       margin-top: 100px;
+     }
+     @include breakpoint(lg) {
+      width: 490px;
+      margin-top: -245px;
+      right: -200px;
      }
      li {
        margin: 0 22px 0 22px;
@@ -64,6 +69,8 @@ nav {
          display: inline-block;
          position: relative;
          color: $color-black;
+         opacity: 1;
+         @extend %large-font;
          @include breakpoint(xs) {
           display: block;
           width :100%;
@@ -94,7 +101,7 @@ nav {
      &:after {
        content: '•';
        position: absolute;
-       bottom: 0px;
+       bottom: 5px;
        width: 6px;
        height: 6px;
        left: 50%;
@@ -120,7 +127,7 @@ nav {
      &:after {
        content: '•';
        position: absolute;
-       bottom: 0px;
+       bottom: 5px;
        width: 6px;
        height: 6px;
        left: 50%;
@@ -146,7 +153,7 @@ nav {
      &:after {
        content: '•';
        position: absolute;
-       bottom: 0px;
+       bottom: 5px;
        width: 6px;
        height: 6px;
        left: 50%;

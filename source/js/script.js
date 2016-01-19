@@ -119,6 +119,12 @@ var aeApp = aeApp || {};
       }
     });
 
+    enquire.register("(min-width: 786px)", {
+      match: function() {
+        $('.main-navigation').attr('style', '');
+        $('.main-navigation a').attr('style', '');
+      }
+    });
   };
 
   aeApp.bgColor = function() {
@@ -790,6 +796,14 @@ aeApp.smoothState = function() {
           // Inject the new content
           $container.html($newContent);
           aeApp.onload();
+
+          if ($(targetElement).hasClass('nav-home')){
+            $('.footer-bg').velocity({
+              opacity: 0,
+            },{
+              duration: 800
+            });
+          }
         }
       }
     },

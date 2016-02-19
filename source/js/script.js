@@ -4,6 +4,129 @@
 
 var aeApp = aeApp || {};
 
+  aeApp.aboutStory = function() {
+
+
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null){
+           return null;
+        }
+        else{
+           return results[1] || 0;
+        }
+    }
+
+    // example.com?id=company name
+    $.urlParam('id');        // company name
+    var companyName = decodeURIComponent($.urlParam('id'));
+
+    if($.urlParam('id')){
+
+      $('.about-content p').first().before('<p>Dear ' + companyName + ',</p><p>My name is Austen Ezzell. I\'m a big fan of your work and I would love the opportunity to talk to you further, but before we do that, here\'s a little about me.</p>');
+      $('.nav-home').hide();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    var $toggleLink = $('.toggle-link');
+    var $toggleContent = $('.toggle-content');
+
+    $toggleLink.click(function(e){
+      e.preventDefault();
+      var description = $(this).attr('data-description');
+
+      if($(this).hasClass('active')){
+        $(this).removeClass('active');
+        $('.toggle-content[data-description=' + description + ']').hide();
+      }else {
+
+        $(this).addClass('active');
+        $('.toggle-content[data-description=' + description + ']').show();
+      }
+    })
+
+
+  };
+
+
+
+  aeApp.albumClick = function() {
+    var $album = $('.albums a');
+    var albumChild;
+    var bgImages = $('.bgimage-container').html();
+    var newContent = '<div class="bg-container">' + bgImages + '</div>';
+
+    if ($('body').hasClass('collections') ){
+
+      if (! $('body').find($('.bg-container')).length > 0) {
+        $('#main-container').after(newContent);
+        $('.og').remove();
+      } else {
+        var replacementContent = bgImages;
+        $('.bg-container').html(replacementContent);
+        $('.og').remove();
+      }
+
+    } else if ($('body').hasClass('photo-collection')) {
+
+        $('.full-page-image').velocity({
+          height: "70vh",
+          marginTop: "15vh",
+          marginLeft: "17.5vw",
+          width: "65vw",
+        },{
+          duration: 300,
+          delay: 500
+        },  [ 250, 15 ]);
+      if (! $('body').find($('.bg-container')).length > 0) {
+        $('#main-container').after(newContent);
+        $('.og').remove();
+      }
+
+    } else {
+      $('.bg-container').remove();
+    }
+
+
+
+    $album.hover(function(){
+      var albumChild = $(this).attr('data-child');
+
+      $('body').find($('.bgimage')).velocity('stop').velocity({
+        opacity: 0,
+      },{
+        duration: 0
+      });
+
+      $('body').find('.bg-container').find("[data-parent='" + albumChild + "']").velocity('stop').velocity({
+        opacity: 1,
+      },{
+        duration: 0,
+        display:'block'
+      });
+
+    }, function(){
+      $('body').find($('.bgimage')).velocity('stop').velocity({
+        opacity: 0,
+      },{
+        duration: 0
+      });
+    });
+  };
+
+
+
+
 
 
   aeApp.mobile = function() {
@@ -205,7 +328,7 @@ var aeApp = aeApp || {};
     };
 
     var bg = $('.scene_element').css('background-color');
-    if($('body').hasClass('blog-page')){
+    if($('body').hasClass('black-bg')){
       if(bg === 'rgba(0, 0, 0, 0)'){
         $('body').addClass('black-bg');
         $('body').css('background', '#000');
@@ -752,7 +875,7 @@ aeApp.smoothState = function() {
               duration: 400,
               delay: 0
           });
-        } else if ($(targetElement).hasClass('nav-blog') || $(targetElement).hasClass('nextBlogEntry')){
+        } else if ($(targetElement).hasClass('nav-photography') || $(targetElement).hasClass('nextBlogEntry')){
           $('body').velocity({
               backgroundColor: '#000'
             }, {
@@ -768,6 +891,24 @@ aeApp.smoothState = function() {
               duration: 0,
               delay: 0
           });
+
+        } else if ($(targetElement).hasClass('photo-album')) {
+
+          $('.bgimage').velocity({
+              opacity: 0,
+            },{
+              duration: 0,
+              delay: 850,
+              display: 'none',
+              complete: function(){
+                var bgImages = $('.bgimage-container').html();
+                var replacementContent = bgImages;
+                $('.bg-container').html(replacementContent);
+                $('.og').remove();
+              }
+            });
+
+
         } else {
           $('body').velocity({
               backgroundColor: '#fff'
@@ -828,6 +969,8 @@ aeApp.onload = function() {
   aeApp.cloud();
   aeApp.mobile();
   aeApp.recentWork();
+  aeApp.albumClick();
+  aeApp.aboutStory();
 };
 
 (function($, window, document) {

@@ -39,9 +39,9 @@ nav {
      padding: 0;
      transform: rotate(-90deg);
      position: absolute;
-     width: 430px;
+     width: 476px;
      bottom: 50%;
-     right: -180px;
+     right: -200px;
      margin-top: -300px;
      @include breakpoint(xs) {
       transform: rotate(0);
@@ -53,9 +53,9 @@ nav {
       margin-top: 100px;
      }
      @include breakpoint(lg) {
-      width: 490px;
-      margin-top: -245px;
-      right: -200px;
+      width: 530px;
+      margin-top: -260px;
+      right: -215px;
      }
      li {
        margin: 0 22px 0 22px;
@@ -96,8 +96,9 @@ nav {
      }
    }
  }
- .blog-page {
-   a.nav-blog {
+ .photography-page, .photo-album-page, {
+   a.nav-photography {
+     color: white;
      &:after {
        content: '•';
        position: absolute;
@@ -106,6 +107,7 @@ nav {
        height: 6px;
        left: 50%;
        margin-left: -3px;
+       color: white;
      }
      @include breakpoint(xs) {
        &:after {
@@ -117,6 +119,7 @@ nav {
          bottom: 50px;
          margin-bottom: -3px;
          margin-left: 0;
+         color: white;
        }
      }
    }

@@ -84,6 +84,27 @@
   margin-top: $base-spacing;
 }
 
+.margin-top-2 {
+  margin-top: $base-spacing * 2;
+}
+.margin-bottom-2 {
+  margin-bottom: $base-spacing * 2;
+}
+
+.margin-top-4 {
+  margin-top: $base-spacing * 4;
+}
+.margin-top-8 {
+  margin-top: $base-spacing * 8;
+  @include breakpoint(xs) {
+    margin-top: $base-spacing * 6;
+  }
+}
+
+.margin-bottom-4 {
+  margin-bottom: $base-spacing * 4;
+}
+
 .margin-right {
   margin-right: $base-spacing;
 }
@@ -161,6 +182,14 @@
 /* Utilities
  * ==================================== */
 
+.color-white {
+  color: white;
+}
+.color-gray {
+  color: $color-gray;
+}
+
+
 .break {
   display: block;
   @include breakpoint(lg) {
@@ -224,6 +253,23 @@
   }
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.cover {
+  background-size: cover!important;
+  background-position: center!important;
+}
+
+.transition {
+  transition: all 200ms linear;
+}
+
+.square {
+  @include aspect-ratio(1, 1);
+}
+
 .three-two {
   @include aspect-ratio(3, 2);
   @include breakpoint(xs) {
@@ -234,7 +280,29 @@
   }
 }
 
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+
 
 .no-wrap {
   white-space: nowrap;
+}
+
+.one-half {
+  width: 50%;
+}
+
+.half {
+  width: 50%;
+  float: left;
+}
+
+.full-width {
+  width: 100%;
+  height: auto;
+}
+
+.multiply {
+  mix-blend-mode: screen;
 }

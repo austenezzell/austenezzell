@@ -26,6 +26,7 @@
     "run-sequence": "^1.0.2"
   },
   "dependencies": {
+    "gulp": "^3.9.1",
     "gulp-filter": "^2.0.1"
   }
 }

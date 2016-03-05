@@ -29,9 +29,9 @@
      .toggle-content{
       display: block;
       margin: $base-spacing*2 0;
-       p, ul, ol {
+       p, ul, ol, a {
 
-         @extend %large-font;
+         @extend %medium-font;
        }
 
        .why-i-code {
